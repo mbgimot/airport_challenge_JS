@@ -18,14 +18,23 @@ describe('Aiport', function() {
   describe('land', function() {
 
 
-
     it('instructs a plane to land', function(){
       airport.land(plane)
-      expect(airport.planes).toInclude(plane)
+      expect(airport.planes).toContain(plane)
      });
 
   });
 
+  describe('take-off', function() {
+
+
+    it('instructs a plane to take-off', function(){
+      airport.land(plane)
+      airport.takeOff(plane)
+      expect(airport.planes).not.toContain(plane)
+     });
+
+  });
 
 
 
