@@ -1,13 +1,11 @@
-describe('Aiport', function() {
+describe('Airport', function() {
   var airport;
   var plane;
-
-  // spyOn(plane, 'land')
-
 
 
   beforeEach(function() {
     airport = new Airport();
+    spyOn(airport, 'getWeather').and.returnValue('Not Stormy')
     plane = new Plane();
   });
 
@@ -34,6 +32,12 @@ describe('Aiport', function() {
         airport.land(plane);
       }
       expect(function() { airport.land(plane)}).toThrow("Airport full")
+    });
+
+    it('doesn\'t land if weather is stormy', function() {
+      var airport2 = new Airport();
+      spyOn(airport2, 'getWeather').and.returnValue('Stormy')
+      expect(function() {airport2.land(plane)}).toThrow("Weather is stormy")
     });
 
   });

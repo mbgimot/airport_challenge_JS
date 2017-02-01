@@ -7,10 +7,10 @@ Weather.prototype.weatherState = function () {
 };
 Weather.prototype.isStormy = function () {
   if(getRandom() > 0.5) {
-    return Symbol('Stormy')
+    return 'Stormy'
   }
   else {
-    return Symbol('Not Stormy')
+    return 'Not Stormy'
   }
 };
 

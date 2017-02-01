@@ -15,9 +15,15 @@ Airport.prototype.setCapacity = function (capacity) {
 };
 
 Airport.prototype.land = function (plane) {
+  if(this.getWeather()==='Stormy') throw "Weather is stormy"
   if (this.planes.length >= this.capacity) throw "Airport full"
   plane.land(this);
   this.planes.push(plane);
+};
+
+Airport.prototype.getWeather = function () {
+  var weather = new Weather()
+  return weather.weatherState()
 };
 
 Airport.prototype.takeOff = function (plane) {
