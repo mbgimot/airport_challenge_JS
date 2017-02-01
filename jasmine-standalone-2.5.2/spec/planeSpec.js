@@ -1,5 +1,8 @@
+'use strict';
+
 describe('Plane', function(){
   var plane;
+  var airport;
 
 beforeEach(function() {
   plane = new Plane();
@@ -7,12 +10,12 @@ beforeEach(function() {
   });
 
   it('is not in the airport at initialisation', function() {
-    expect(plane.airport).toBeNull()
+    expect(plane.getAirport()).toBeNull()
   });
 
   it('is at an airport when landed', function() {
     plane.land(airport);
-    expect(plane.airport).toEqual(airport);
+    expect(plane.getAirport()).toEqual(airport);
   });
 
 

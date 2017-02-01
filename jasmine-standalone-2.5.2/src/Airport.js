@@ -1,3 +1,5 @@
+'use strict';
+
 function Airport (capacity) {
   this.setCapacity(capacity);
   this.planes = [];
